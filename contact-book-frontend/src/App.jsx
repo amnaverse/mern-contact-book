@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const fetchContacts = async () => {
-    const response = await axios.get('http://localhost:3000/contacts');
+    const response = await axios.get('https://mern-contact-book-production.up.railway.app/contacts');
     setContacts(response.data);
   };
 
@@ -36,7 +36,7 @@ function App() {
 
   const addContact = async () => {
     if (!name.trim() || !phone.trim()) return;
-    await axios.post('http://localhost:3000/contacts', { name, phone, photo });
+    await axios.post('https://mern-contact-book-production.up.railway.app/contacts', { name, phone, photo });
     setName('');
     setPhone('');
     setPhoto('');
@@ -44,7 +44,7 @@ function App() {
   };
 
   const deleteContact = async (contactName) => {
-    await axios.delete(`http://localhost:3000/contacts/${contactName}`);
+    await axios.delete(`https://mern-contact-book-production.up.railway.app/contacts/${contactName}`);
     fetchContacts();
   };
 
