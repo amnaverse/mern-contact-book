@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb://amna16528_db_user:BLDvdE1qRnExSDE1@ac-wwyvqqs-shard-00-00.whyr94x.mongodb.net:27017,ac-wwyvqqs-shard-00-01.whyr94x.mongodb.net:27017,ac-wwyvqqs-shard-00-02.whyr94x.mongodb.net:27017/contactBookDB?ssl=true&replicaSet=atlas-lqf3wd-shard-0&authSource=admin&appName=Cluster0')
+mongoose.connect(mongoose.connect(process.env.MONGO_URI))
   .then(() => console.log('Connected to MongoDB!'))
   .catch((err) => console.log('Connection error:', err));
 
