@@ -6,6 +6,6 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 8080,
-    allowedHosts: ['mern-contact-book-production-0efa.up.railway.app'],
+    allowedHosts: ['magnificent-reprieve-production-316c.up.railway.app'],
   },
 })
