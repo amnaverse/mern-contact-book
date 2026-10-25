@@ -18,7 +18,6 @@ A full-stack contact management application built with the MERN stack (MongoDB, 
 - **Deployment:** Railway
 
 ## How to Run Locally
-
 **Backend**
 ```bash
 cd "Node.js Practice Project/contact-book"
