@@ -6,6 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+console.log('URI starts with:', JSON.stringify((process.env.MONGO_URI || '').slice(0, 15)));
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB!'))
