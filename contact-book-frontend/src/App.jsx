@@ -19,10 +19,11 @@ function App() {
     fetchContacts();
   }, []);
 
-  const fetchContacts = async () => {
-    const response = await axios.get('https://mern-contact-book-production.up.railway.app/contacts');
-    setContacts(response.data);
-  };
+ 
+const fetchContacts = async () => {
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/contacts`);
+  setContacts(response.data);
+};
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
@@ -34,19 +35,29 @@ function App() {
     reader.readAsDataURL(file);
   };
 
-  const addContact = async () => {
-    if (!name.trim() || !phone.trim()) return;
-    await axios.post('https://mern-contact-book-production.up.railway.app/contacts', { name, phone, photo });
-    setName('');
-    setPhone('');
-    setPhoto('');
-    fetchContacts();
-  };
+ 
+const addContact = async () => {
+  if (!name.trim() || !phone.trim()) return;
 
-  const deleteContact = async (contactName) => {
-    await axios.delete(`https://mern-contact-book-production.up.railway.app/contacts/${contactName}`);
-    fetchContacts();
-  };
+  await axios.post(`${import.meta.env.VITE_API_URL}/contacts`, {
+    name,
+    phone,
+    photo
+  });
+
+  setName('');
+  setPhone('');
+  setPhoto('');
+  fetchContacts();
+};
+
+
+ 
+const deleteContact = async (contactName) => {
+  await axios.delete(`${import.meta.env.VITE_API_URL}/contacts/${contactName}`);
+  fetchContacts();
+};
+
 
   return (
     <div className="book">
